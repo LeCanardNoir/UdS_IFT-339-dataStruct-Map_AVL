@@ -58,6 +58,16 @@ void map<Tclef, Tvaleur>::rotation_gauche_droite(noeud*& p)
 template <typename Tclef, typename Tvaleur>
 void map<Tclef, Tvaleur>::rotation_droite_gauche(noeud*& p)
 {
+    noeud* tmp = p->m_droite;
+    int ia = tmp->m_indice;
+    int ib = p->m_indice;
+    int nib = -ia - std::max(0, -ia) - 1 + ib;
+    int nia = ia - std::max(0, -nib) - 1;
+    tmp->m_indice = nia;
+    p->m_indice = nib;
+    p->m_droite = tmp->m_gauche;
+    tmp->m_droite = p;
+    p = tmp;
 }
 
 
