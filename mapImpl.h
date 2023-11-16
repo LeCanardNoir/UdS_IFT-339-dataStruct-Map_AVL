@@ -52,9 +52,10 @@ typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::insert(iterator j, c
 template <typename Tclef, typename Tvaleur>
 void map<Tclef, Tvaleur>::rotation_gauche_droite(noeud*& p)
 {
-    noeud* nTop;
-    if (p->m_gauche) nTop = p->m_gauche;
-    else return;
+    if (!p) return;
+    if (!p->m_gauche) return;
+
+    noeud* nTop = p->m_gauche;
 
     int ia = nTop->m_indice;
     int ib = p->m_indice;
@@ -78,10 +79,10 @@ template <typename Tclef, typename Tvaleur>
 void map<Tclef, Tvaleur>::rotation_droite_gauche(noeud*& p)
 {
 
+    if (!p) return;
+    if (!p->m_droite) return;
 
-    noeud* nTop;
-    if (p->m_droite) nTop = p->m_droite;
-    else return;
+    noeud* nTop = p->m_droite;
 
     int ia = p->m_indice;
     int ib = nTop->m_indice;

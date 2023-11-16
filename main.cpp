@@ -15,15 +15,21 @@ int main()
 	m1.insert(3, "Troisième");
 	m1.insert(4, "Quatrième");
 	m1.insert(5, "Cinquième");
+	m1.insert(-5, "- Cinquième");
 	m1.insert(6, "Sixième");
 	m1.insert(-6, "moins Sixième");
 	m1.insert(7, "Septième");
+	m1.insert(-7, "- Septième");
 	m1.insert(8, "Huitième");
 	m1.insert(9, "Neuvième");
 	m1.insert(10, "Dixième");
 	m1.insert(11, "Onzième");
 	m1.insert(12, "Douzième");
 	m1.insert(13, "Treizième");
+	m1.insert(14, "quatorze");
+	m1.insert(15, "15");
+	m1.insert(16, "16");
+	m1.insert(-10, "moins dix");
 	m1.afficher(cout);
 
 	map<string, string> m2;
