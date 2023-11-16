@@ -14,6 +14,7 @@
 #define mapImpl_h
 
 #include <algorithm>
+#include <iostream>
 
 ///////////////////////////////////////////////////////////////////////////
 // lower_bound O(log n)
@@ -21,7 +22,20 @@
 template <typename Tclef, typename Tvaleur>
 typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::lower_bound(const Tclef& c) const
 {
-    return iterator(nullptr);
+    noeud* n = m_apres->m_gauche;
+    noeud* lower = m_apres;
+
+    while (n != nullptr) {
+        if (n->m_contenu->first < c)
+            n = n->m_droite;
+        else
+        {
+            lower = n;
+            n = n->m_gauche;
+        }
+    }
+
+    return iterator(lower);
 }
 
 ///////////////////////////////////////////////////////////////////////////
