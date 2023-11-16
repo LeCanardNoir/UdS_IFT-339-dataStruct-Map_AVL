@@ -9,6 +9,7 @@ using namespace std;
 int main()
 {
 	map<int, string> m1;
+	map<int, string> m3;
 	m1.insert(0, "rien");
 	m1.insert(1, "Premier");
 	m1.insert(2, "Deuxième");
@@ -30,6 +31,10 @@ int main()
 	m1.insert(15, "15");
 	m1.insert(16, "16");
 	m1.insert(-10, "moins dix");
+
+	auto it = m1.lower_bound(10);
+	std::cout << (*it).second << endl;
+
 	m1.afficher(cout);
 
 	map<string, string> m2;
