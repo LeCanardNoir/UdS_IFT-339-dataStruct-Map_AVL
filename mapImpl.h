@@ -55,7 +55,8 @@ typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::erase(iterator i)
 template <typename Tclef, typename Tvaleur>
 typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::insert(iterator j, const Tclef& c, const Tvaleur& val)
 {
-    return insert(c).first;
+    insert(c, val, j.m_courant, j);
+    return j;
 }
 
 ///////////////////////////////////////////////////////////////////////////
