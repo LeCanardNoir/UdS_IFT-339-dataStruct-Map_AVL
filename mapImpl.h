@@ -86,8 +86,10 @@ void map<Tclef, Tvaleur>::rotation_droite_gauche(noeud*& p)
     int ia = p->m_indice;
     int ib = nTop->m_indice;
 
-    int nib = 1+ std::max(1+std::max(0,ib)+ia, -ib);
-    int nia = 1 + std::max(0, ib) + ia - ib;
+    //int nib = 1+ std::max(1+std::max(0,ib)+ia, -ib);
+    //int nia = 1 + std::max(0, ib) + ia - ib;
+    int nia = ia + 1 + std::max(ib, 0) - ib;
+    int nib = 2 + std::max(0, -nia) + std::max(ib, 0) + ia;
 
     p->m_indice = nia;
     nTop->m_indice = nib;
