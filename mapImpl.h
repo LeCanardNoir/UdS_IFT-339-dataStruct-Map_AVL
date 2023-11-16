@@ -7,8 +7,8 @@
 //  Modifie par : Vincent Ducharme, Hiver 2018
 //
 //  Devoir fait par
-//     Coéquipier 1 :
-//     Coéquipier 2 :
+//     CoÃ©quipier 1 :
+//     CoÃ©quipier 2 :
 
 #ifndef mapImpl_h
 #define mapImpl_h
@@ -56,6 +56,7 @@ void map<Tclef, Tvaleur>::rotation_gauche_droite(noeud*& p)
     if (!p->m_gauche) return;
 
     noeud* nTop = p->m_gauche;
+    noeud* parent = p->m_parent;
 
     int ia = nTop->m_indice;
     int ib = p->m_indice;
@@ -71,6 +72,14 @@ void map<Tclef, Tvaleur>::rotation_gauche_droite(noeud*& p)
     nTop->m_parent = p->m_parent;
     p->m_parent = nTop;
 
+    if (parent->m_gauche == p)
+        parent->m_gauche = nTop;
+    else if (parent->m_droite == p)
+        parent->m_droite = nTop;
+
+    if (p->m_gauche)
+        p->m_gauche->m_parent = p;
+
     p = nTop;
 }
 
@@ -83,6 +92,7 @@ void map<Tclef, Tvaleur>::rotation_droite_gauche(noeud*& p)
     if (!p->m_droite) return;
 
     noeud* nTop = p->m_droite;
+    noeud* parent = p->m_parent;
 
     int ia = p->m_indice;
     int ib = nTop->m_indice;
@@ -100,6 +110,14 @@ void map<Tclef, Tvaleur>::rotation_droite_gauche(noeud*& p)
 
     nTop->m_parent = p->m_parent;
     p->m_parent = nTop;
+
+    if (parent->m_gauche == p)
+        parent->m_gauche = nTop;
+    else if (parent->m_droite == p)
+        parent->m_droite = nTop;
+
+    if (p->m_droite)
+        p->m_droite->m_parent = p;
 
     p = nTop;
 
