@@ -11,12 +11,6 @@ int main()
 	map<int, string> m1;
 	map<int, string> m3;
 	m1.insert(0, "rien");
-	auto it = m1.lower_bound(0);
-	//m1.insert(m1.begin(), 99, "fuck the world");
-
-	m1.afficher(cout);
-
-	/*m1.insert(0, "rien");
 	m1.insert(1, "Premier");
 	m1.insert(2, "Deuxième");
 	m1.insert(3, "Troisième");
@@ -37,6 +31,10 @@ int main()
 	m1.insert(15, "15");
 	m1.insert(16, "16");
 	m1.insert(-10, "moins dix");
+
+	auto it = m1.lower_bound(10);
+	std::cout << (*it).second << endl;
+
 	m1.afficher(cout);
 
 	map<string, string> m2;
@@ -53,7 +51,7 @@ int main()
 	m2.insert("zzzzz", "baby ZZZZZ");
 	m2.insert("aaa", "3a");
 	m2.insert("10", "10");
-	m2.afficher(cout);*/
+	m2.afficher(cout);
 
 
 	return 0;
