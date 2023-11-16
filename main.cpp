@@ -9,13 +9,6 @@ using namespace std;
 int main()
 {
 	map<int, string> m1;
-	m1.insert(7, "Septième");
-	m1.insert(8, "Huitième");
-	m1.insert(9, "Neuvième");
-	m1.insert(10, "Dixième");
-	m1.insert(11, "Onzième");
-	m1.insert(12, "Douzième");
-	m1.insert(13, "Treizième");
 	m1.insert(0, "rien");
 	m1.insert(1, "Premier");
 	m1.insert(2, "Deuxième");
@@ -23,6 +16,14 @@ int main()
 	m1.insert(4, "Quatrième");
 	m1.insert(5, "Cinquième");
 	m1.insert(6, "Sixième");
+	m1.insert(-6, "moins Sixième");
+	m1.insert(7, "Septième");
+	m1.insert(8, "Huitième");
+	m1.insert(9, "Neuvième");
+	m1.insert(10, "Dixième");
+	m1.insert(11, "Onzième");
+	m1.insert(12, "Douzième");
+	m1.insert(13, "Treizième");
 	m1.afficher(cout);
 
 	map<string, string> m2;
