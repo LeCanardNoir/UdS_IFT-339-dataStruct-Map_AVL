@@ -56,7 +56,6 @@ void map<Tclef, Tvaleur>::rotation_gauche_droite(noeud*& p)
     if (!p->m_gauche) return;
 
     noeud* nTop = p->m_gauche;
-    noeud* parent = p->m_parent;
 
     int ia = nTop->m_indice;
     int ib = p->m_indice;
@@ -71,11 +70,6 @@ void map<Tclef, Tvaleur>::rotation_gauche_droite(noeud*& p)
 
     nTop->m_parent = p->m_parent;
     p->m_parent = nTop;
-
-    if (parent->m_gauche == p)
-        parent->m_gauche = nTop;
-    else if (parent->m_droite == p)
-        parent->m_droite = nTop;
 
     if (p->m_gauche)
         p->m_gauche->m_parent = p;
@@ -92,7 +86,6 @@ void map<Tclef, Tvaleur>::rotation_droite_gauche(noeud*& p)
     if (!p->m_droite) return;
 
     noeud* nTop = p->m_droite;
-    noeud* parent = p->m_parent;
 
     int ia = p->m_indice;
     int ib = nTop->m_indice;
@@ -110,11 +103,6 @@ void map<Tclef, Tvaleur>::rotation_droite_gauche(noeud*& p)
 
     nTop->m_parent = p->m_parent;
     p->m_parent = nTop;
-
-    if (parent->m_gauche == p)
-        parent->m_gauche = nTop;
-    else if (parent->m_droite == p)
-        parent->m_droite = nTop;
 
     if (p->m_droite)
         p->m_droite->m_parent = p;
