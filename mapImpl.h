@@ -41,19 +41,7 @@ typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::erase(iterator i)
 template <typename Tclef, typename Tvaleur>
 typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::insert(iterator j, const Tclef& c, const Tvaleur& val)
 {
-    if (c < j->first) {
-        if (j.m_courant->m_gauche)
-            return insert(iterator(j.m_courant->m_gauche), c, val);
-        noeud* nouveauNoeud = new noeud(c, val, j.m_courant);
-        j.m_courant->m_gauche = nouveauNoeud;
-    }
-    else if (j->first < c) {
-        if (j.m_courant->m_droite)
-            return insert(iterator(j.m_courant->m_droite), c, val);
-        noeud* nouveauNoeud = new noeud(c, val, j.m_courant);
-        j.m_courant->m_droite = nouveauNoeud;
-    }
-
+    insert(c, val, j.m_courant, j);
     return j;
 }
 
