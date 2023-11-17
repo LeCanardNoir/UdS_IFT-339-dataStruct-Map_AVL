@@ -45,7 +45,10 @@ template <typename Tclef, typename Tvaleur>
 typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::erase(iterator i)
 {
     assert(i!=end());
-    erase(i++->first);
+
+    if (i.m_courant) 
+        erase((*i).first);    
+
     return i;
 }
 
