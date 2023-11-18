@@ -102,13 +102,13 @@ int main()
 
 	cout << endl << "Insertion de 49 en utilisant iterateur resultant de l'ajout de 50" << endl;
 
-	map<int, std::string> mIterator;
-	mIterator.insert(49, "49");
-	map<int, string>::iterator it = mIterator.lower_bound(49);
+	/*map<int, std::string> mIterator;
+	mIterator.insert(49, "49");*/
+	map<int, string>::iterator it = mapDuProf.lower_bound(50);
 
 	cout << (*it).first << endl;
 
-	mapDuProf.insert(it, (*it).first, (*it).second);
+	mapDuProf.insert(it, 49, "test");
 	mapDuProf.afficher(cout);
 
 	cout << endl << "Supression du 3e element" << endl;
