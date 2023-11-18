@@ -300,9 +300,13 @@ bool map<Tclef, Tvaleur>::ajouter_gauche(const Tclef& c, const Tvaleur& val, noe
     {
         //nouvelle feuille
         p->m_gauche = new noeud(c, val, p);
+        bool p_indice_est_egal_1 = (++(p->m_indice) == 1);
+
         r = iterator(p->m_gauche);
         ++m_size;
-        return(++(p->m_indice) == 1);
+
+        return p_indice_est_egal_1;
+        //return(++(p->m_indice) == 1);
     }
     else if (insert(c, val, p->m_gauche, r))
     { //ajout general a gauche
