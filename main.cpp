@@ -106,7 +106,7 @@ int main()
 	mIterator.insert(49, "49");*/
 	map<int, string>::iterator it = mapDuProf.lower_bound(50);
 
-	cout << (*it).first << endl;
+	//cout << (*it).first << endl;
 
 	mapDuProf.insert(it, 49, "test");
 	mapDuProf.afficher(cout);
