@@ -36,6 +36,18 @@ int main()
 	std::cout << (*it).second << endl;*/
 
 	m1.afficher(cout);
+	for (auto it = m1.begin(); it != m1.end(); it++)
+	{
+		if (it->first ==11)
+			m1.erase(it);
+	}
+	m1.afficher(cout);
+	for (auto it = m1.begin(); it != m1.end(); it++)
+	{
+		if (it->first == 3)
+			m1.erase(it);
+	}
+	m1.afficher(cout);
 
 	map<string, string> m2;
 	m2.insert("help", "I'm stuck");

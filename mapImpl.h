@@ -47,10 +47,16 @@ typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::erase(iterator i)
     assert(i!=end());
 
     noeud* aRemplacer = i.m_courant;
-    if (!aRemplacer) return i;
+    if (!aRemplacer) return ++i;
 
     noeud* p = aRemplacer->m_parent;
     Tclef c = (*i).first;
+
+    if (p == m_apres) {
+        enlever_gauche(c, p, aRemplacer);
+        return ++i;
+    }
+
     if (c < p->m_contenu->first) 
         enlever_gauche(c, p, aRemplacer);
 
