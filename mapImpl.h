@@ -45,8 +45,19 @@ template <typename Tclef, typename Tvaleur>
 typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::erase(iterator i)
 {
     assert(i!=end());
-    erase(i++->first);
-    return i;
+
+    noeud* aRemplacer = i.m_courant;
+    if (!aRemplacer) return i;
+
+    noeud* p = aRemplacer->m_parent;
+    Tclef c = (*i).first;
+    if (c < p->m_contenu->first) 
+        enlever_gauche(c, p, aRemplacer);
+
+    if (p->m_contenu->first < c)
+        enlever_droite(c, p, aRemplacer);
+
+    return ++i;
 }
 
 ///////////////////////////////////////////////////////////////////////////

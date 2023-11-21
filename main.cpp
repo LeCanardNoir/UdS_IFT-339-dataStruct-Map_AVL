@@ -32,8 +32,8 @@ int main()
 	m1.insert(16, "16");
 	m1.insert(-10, "moins dix");
 
-	auto it = m1.lower_bound(10);
-	std::cout << (*it).second << endl;
+	/*auto it = m1.lower_bound(10);
+	std::cout << (*it).second << endl;*/
 
 	m1.afficher(cout);
 
@@ -53,6 +53,72 @@ int main()
 	m2.insert("10", "10");
 	m2.afficher(cout);
 
+
+	cout << endl << "Tests de la prof" << endl;
+	map<int, std::string> mapDuProf;
+
+	cout << endl << "État initial du map" << endl;
+	mapDuProf.afficher(cout);
+
+	cout << endl << "Insertion de 9" << endl;
+	mapDuProf.insert(9, "9");
+	mapDuProf.afficher(cout);
+
+	cout << endl << "Insertion de 4" << endl;
+	mapDuProf.insert(4, "4");
+	mapDuProf.afficher(cout);
+
+	cout << endl << "Insertion de 12" << endl;
+	mapDuProf.insert(12, "12");
+	mapDuProf.afficher(cout);
+
+	cout << endl << "Insertion de 8" << endl;
+	mapDuProf.insert(8, "8");
+	mapDuProf.afficher(cout);
+
+	cout << endl << "Insertion de 6" << endl;
+	mapDuProf.insert(6, "6");
+	mapDuProf.afficher(cout);
+
+	cout << endl << "Insertion de 5" << endl;
+	mapDuProf.insert(5, "5");
+	mapDuProf.afficher(cout);
+
+	cout << endl << "Insertion de 15" << endl;
+	mapDuProf.insert(15, "15");
+	mapDuProf.afficher(cout);
+
+	cout << endl << "Supression de 9" << endl;
+	mapDuProf.erase(9);
+	mapDuProf.afficher(cout);
+
+	cout << endl << "Supression de 6" << endl;
+	mapDuProf.erase(6);
+	mapDuProf.afficher(cout);
+
+	cout << endl << "Ajout de 50" << endl;
+	mapDuProf.insert(50, "50");
+	mapDuProf.afficher(cout);
+
+	cout << endl << "Insertion de 49 en utilisant iterateur resultant de l'ajout de 50" << endl;
+
+	/*map<int, std::string> mIterator;
+	mIterator.insert(49, "49");*/
+	map<int, string>::iterator it = mapDuProf.lower_bound(50);
+
+	//cout << (*it).first << endl;
+
+	mapDuProf.insert(it, 49, "test");
+	mapDuProf.afficher(cout);
+
+	cout << endl << "Supression du 3e element" << endl;
+	auto itTroisiemeElement = mapDuProf.begin();
+	itTroisiemeElement++;
+	itTroisiemeElement++;
+	mapDuProf.erase(itTroisiemeElement);
+
+
+	cout << "Fin des tests du prof" << endl;
 
 	return 0;
 }
